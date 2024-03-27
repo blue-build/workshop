@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
-RUN sudo dnf check-update && \
-    sudo dnf install \
+RUN sudo dnf check-update -y && \
+    sudo dnf install -y \
         webkit2gtk4.0-devel \
         openssl-devel \
         curl \
@@ -9,4 +9,4 @@ RUN sudo dnf check-update && \
         file \
         libappindicator-gtk3-devel \
         librsvg2-devel && \
-    sudo dnf group install "C Development Tools and Libraries"
+    sudo dnf group install -y "C Development Tools and Libraries"
