@@ -6,7 +6,7 @@ This template should help get you started developing with Tauri, Svelte and Type
 
 ### Set up environment
 
-Use the Nix Flake for easy setup.
+Using the Nix Flake:
 
 ```sh
 nix develop
@@ -14,6 +14,13 @@ nix develop
 # use this command if in a non-posix-compliant shell
 bash -c "SHELL=bash nix develop"
 ```
+
+Using the dev toolbox container image:
+```sh
+distrobox create -i ghcr.io/blue-build/workshop-dev -n workshop-dev -p # add --nvidia flag if using nvidia
+distrobox enter workshop-dev
+```
+
 
 Install deps
 
