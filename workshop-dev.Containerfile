@@ -2,6 +2,10 @@ FROM registry.fedoraproject.org/fedora-toolbox:latest
 
 RUN sudo dnf check-update -y && \
     sudo dnf install -y \
+        nodejs \
+        pnpm \
+        rust \
+        cargo \
         webkit2gtk4.0-devel \
         openssl-devel \
         curl \
