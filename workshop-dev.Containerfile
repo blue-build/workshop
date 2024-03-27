@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
-RUN sudo dnf check-update -y && \
-    sudo dnf install -y \
+RUN dnf check-update -y && \
+    dnf install -y \
         nodejs \
         pnpm \
         rust \
@@ -13,4 +13,4 @@ RUN sudo dnf check-update -y && \
         file \
         libappindicator-gtk3-devel \
         librsvg2-devel && \
-    sudo dnf group install -y "C Development Tools and Libraries"
+    dnf group install -y "C Development Tools and Libraries"
