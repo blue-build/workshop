@@ -16,11 +16,11 @@ bash -c "SHELL=bash nix develop"
 ```
 
 Using the dev toolbox container image:
+
 ```sh
 distrobox create -i ghcr.io/blue-build/workshop-dev -n workshop-dev -p # add --nvidia flag if using nvidia
 distrobox enter workshop-dev
 ```
-
 
 Install deps
 
@@ -30,7 +30,7 @@ pnpm install
 
 ### Run development version
 
-Web browser
+SSR web version
 
 ```sh
 pnpm dev
@@ -42,6 +42,20 @@ Tauri app
 pnpm tauri dev
 ```
 
-## Recommended IDE Setup
+### Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+
+## Building
+
+Build SSR web version
+
+```sh
+pnpm build
+```
+
+Build Tauri app
+
+```sh
+pnpm tauri build
+```
