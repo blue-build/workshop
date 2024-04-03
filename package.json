@@ -42,6 +42,8 @@
     },
     "type": "module",
     "dependencies": {
+        "@fontsource-variable/rubik": "^5.0.21",
+        "@fontsource/ibm-plex-mono": "^5.0.12",
         "bits-ui": "^0.21.2",
         "clsx": "^2.1.0",
         "tailwind-merge": "^2.2.2",

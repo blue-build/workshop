@@ -1,5 +1,7 @@
 <script>
     import "../app.pcss";
+    import "@fontsource-variable/rubik";
+    import "@fontsource/ibm-plex-mono";
     // @ts-ignore
     // import { PUBLIC_ADAPTER } from "$env/static/public";
 </script>

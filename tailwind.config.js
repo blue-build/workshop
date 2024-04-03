@@ -58,7 +58,8 @@ const config = {
                 sm: "calc(var(--radius) - 4px)"
             },
             fontFamily: {
-                sans: [...fontFamily.sans]
+                sans: "Rubik Variable, system-ui, sans-serif",
+                mono: "IBM Plex Mono, monospace"
             }
         }
     }
