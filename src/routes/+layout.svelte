@@ -4,6 +4,12 @@
     // import { PUBLIC_ADAPTER } from "$env/static/public";
 </script>
 
-<h1>BlueBuild Workshop</h1>
+<div class="dark min-h-screen bg-background text-foreground">
+    <header class="border-b border-muted px-8 py-4">
+        <h1 class="text-xl">BlueBuild Workshop</h1>
+    </header>
 
-<slot />
+    <main class="p-4">
+        <slot />
+    </main>
+</div>

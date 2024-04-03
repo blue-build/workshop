@@ -21,7 +21,7 @@ const config = {
                 background: "hsl(var(--background) / <alpha-value>)",
                 foreground: "hsl(var(--foreground) / <alpha-value>)",
                 primary: {
-                    DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+                    DEFAULT: "hsl(var(--primary-color) / <alpha-value>)",
                     foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
                 },
                 secondary: {
@@ -48,6 +48,9 @@ const config = {
                     DEFAULT: "hsl(var(--card) / <alpha-value>)",
                     foreground: "hsl(var(--card-foreground) / <alpha-value>)"
                 }
+            },
+            backgroundImage: {
+                primary: "var(--primary-gradient)"
             },
             borderRadius: {
                 lg: "var(--radius)",
