@@ -60,6 +60,9 @@ const config = {
             fontFamily: {
                 sans: "Rubik Variable, system-ui, sans-serif",
                 mono: "IBM Plex Mono, monospace"
+            },
+            boxShadow: {
+                subtle: "4px 4px 0px hsl(var(--background))"
             }
         }
     }
