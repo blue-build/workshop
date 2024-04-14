@@ -12,7 +12,7 @@
         My repositories
     </h2>
     {#if !data.githubUser.login}
-        <Button href="/login" size="lg" variant="default" class="mx-auto max-w-xl">
+        <Button href="/api/login" size="lg" variant="default" class="mx-auto max-w-xl">
             Log in with GitHub</Button
         >
     {:else}

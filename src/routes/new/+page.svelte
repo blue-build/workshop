@@ -5,10 +5,29 @@
     import { Label } from "$lib/ui/components/ui/label";
     import { Progress } from "$lib/ui/components/ui/progress";
     import Log from "$lib/ui/components/newImage/log.svelte";
+    import { readLogStream } from "$lib/ts/misc/logStream.js";
 
     type SetupStep = "start" | "inprogress" | "cosign" | "done" | "failed";
     let setupStep = "start" as SetupStep;
     let log: Array<string> = [];
+    export let data;
+
+    async function createRepo() {
+        setupStep = "inprogress";
+        const res = await fetch("/api/github/createRepo", {
+            method: "POST",
+            body: JSON.stringify({
+                name: document.getElementById("reponame").value,
+                login: data.githubUser.login
+            }),
+            headers: {
+                "content-type": "application/json"
+            }
+        });
+        readLogStream(res, (value) => {
+            log = [...log, value];
+        });
+    }
 
     function generateCosignKeys() {
         // @ts-ignore
@@ -24,11 +43,6 @@
                 console.log(cosignPrivateKey);
             }
         );
-    }
-    // add to log something random every second
-    setInterval(testLog, 500);
-    function testLog() {
-        log = [...log, Math.random().toPrecision(10)];
     }
 </script>
 
@@ -59,14 +73,15 @@
                 <Label for="reponame">
                     Please enter a name for your new custom image repository:
                 </Label>
-                <Input id="reponame" type="text" placeholder="weird-os" class="font-mono" required
+                <Input
+                    id="reponame"
+                    name="reponame"
+                    type="text"
+                    placeholder="weird-os"
+                    class="font-mono"
+                    required
                 ></Input>
-                <Button
-                    on:click={() => (setupStep = "inprogress")}
-                    size="lg"
-                    variant="default"
-                    class="mt-6"
-                >
+                <Button on:click={createRepo} size="lg" variant="default" class="mt-6">
                     Create repository
                 </Button>
             {:else if setupStep === "inprogress"}

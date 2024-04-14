@@ -48,7 +48,7 @@ pnpm tauri dev
 
 ### GitHub OAuth
 
-For testing features requiring GitHub OAuth, create a `.env` file with the `GITHUB_CLIENT_ID` abd `GITHUB_CLIENT_SECRET` of your development OAuth app. The callback URL should be `http://localhost:5173/login/callback`.
+For testing features requiring GitHub OAuth, create a `.env` file with the `GITHUB_CLIENT_ID` abd `GITHUB_CLIENT_SECRET` of your development OAuth app. The callback URL should be `http://localhost:5173/api/login/callback`.
 
 ## Building
 
