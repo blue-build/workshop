@@ -46,6 +46,10 @@ pnpm tauri dev
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
 
+### GitHub OAuth
+
+For testing features requiring GitHub OAuth, create a `.env` file with the `GITHUB_CLIENT_ID` abd `GITHUB_CLIENT_SECRET` of your development OAuth app. The callback URL should be `http://localhost:5173/login/callback`.
+
 ## Building
 
 Build SSR web version

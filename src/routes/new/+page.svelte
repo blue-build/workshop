@@ -42,7 +42,7 @@
         <Card.Header variant="elevated">
             <Card.Title class="text-2xl">
                 {#if setupStep === "start"}
-                    Set up a new image repository
+                    Set up a new repository
                 {:else if setupStep === "inprogress"}
                     Setting up your repository...
                 {:else if setupStep === "cosign"}
@@ -67,7 +67,7 @@
                     variant="default"
                     class="mt-6"
                 >
-                    Sign in with GitHub to continue...
+                    Create repository
                 </Button>
             {:else if setupStep === "inprogress"}
                 <Progress value={log.length} class="mb-6" />
