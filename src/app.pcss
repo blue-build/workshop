@@ -5,33 +5,39 @@
 @layer base {
     :root {
         --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        --foreground: 234 44% 14%;
 
         --muted: 0 0% 96.1%;
         --muted-foreground: 0 0% 45.1%;
 
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
+        --popover: var(--secondary);
+        --popover-foreground: var(--secondary-foreground);
 
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card: 220 100% 98%;
+        --card-foreground: var(--foreground);
 
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
+        --border: var(--foreground);
+        --input: var(--foreground);
 
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
+        --primary-gradient: linear-gradient(
+            180deg,
+            hsl(var(--background)) 0%,
+            #d2e0fc 60%,
+            #a6dfff 100%
+        );
+        --primary-color: 202 100% 82%;
+        --primary-foreground: var(--foreground);
 
-        --secondary: 0 0% 96.1%;
+        --secondary: 220 87% 91%;
         --secondary-foreground: 0 0% 9%;
 
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
+        --accent: 45 79% 78%;
+        --accent-foreground: var(--background);
 
-        --destructive: 0 72.2% 50.6%;
-        --destructive-foreground: 0 0% 98%;
+        --destructive: 0 64% 63%;
+        --destructive-foreground: var(--background);
 
-        --ring: 0 0% 3.9%;
+        --ring: var(--accent);
 
         --radius: 0;
     }
@@ -64,7 +70,7 @@
         --secondary: 234 29% 22%;
         --secondary-foreground: var(--foreground);
 
-        --accent: 45 79%78%;
+        --accent: 45 79% 78%;
         --accent-foreground: var(--background);
 
         --destructive: 0 79% 78%;
@@ -81,4 +87,8 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+body * {
+    @apply transition-colors duration-100;
 }

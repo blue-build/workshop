@@ -12,7 +12,7 @@
 </script>
 
 <ProgressPrimitive.Root
-    class={cn("relative h-8 w-full overflow-hidden border-2 bg-secondary", className)}
+    class={cn("relative h-8 w-full overflow-hidden border-2", className)}
     {...$$restProps}
 >
     <div
