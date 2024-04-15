@@ -1,9 +1,11 @@
 export async function createLogStream(
-    func: (logStream: ReadableStreamDefaultController<string>) => void
+    func: (log: (newLogLine: string) => void) => void
 ): Promise<Response> {
     const logStream = new ReadableStream({
         async start(logStream) {
-            await func(logStream);
+            await func((newLogLine: string) => {
+                logStream.enqueue(newLogLine + "\n");
+            });
         }
     });
 

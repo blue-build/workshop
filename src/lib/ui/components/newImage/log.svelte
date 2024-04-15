@@ -38,7 +38,7 @@
             class="flex max-h-[24rem] min-h-32 w-full -translate-y-4 flex-col overflow-auto border-2 bg-popover p-2 pt-4 font-mono text-sm"
         >
             {#each log as logLine}
-                <pre>{logLine}</pre>
+                <pre class="text-wrap">{logLine}</pre>
             {/each}
         </div>
         {#if scrollIntoView === false}
