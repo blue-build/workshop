@@ -24,7 +24,7 @@
             <Button
                 on:click={toggleMode}
                 size="icon"
-                variant="outline"
+                variant="ghost"
                 class="relative overflow-hidden"
             >
                 <LucideSun
