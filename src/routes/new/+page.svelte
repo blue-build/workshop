@@ -26,6 +26,9 @@
         });
         readLogStream(res, (value) => {
             log = [...log, value];
+            if (value.includes("DONE!")) {
+                setupStep = "cosign";
+            }
         });
     }
 
@@ -85,10 +88,11 @@
                     Create repository
                 </Button>
             {:else if setupStep === "inprogress"}
-                <Progress value={log.length} class="mb-6" />
+                <Progress value={log.length} max={10} class="mb-6" />
                 <Log {log} />
             {:else if setupStep === "cosign"}
                 Set up container signing
+                <Log {log} />
             {:else}
                 Done!
             {/if}
