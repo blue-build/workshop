@@ -11,6 +11,9 @@ dependencies:
   '@fontsource/ibm-plex-mono':
     specifier: ^5.0.12
     version: 5.0.12
+  '@octokit/types':
+    specifier: ^13.4.0
+    version: 13.4.0
   arctic:
     specifier: ^1.5.0
     version: 1.5.0
@@ -1310,6 +1313,16 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  /@octokit/openapi-types@22.0.1:
+    resolution: {integrity: sha512-1yN5m1IMNXthoBDUXFF97N1gHop04B3H8ws7wtOr8GgRyDO1gKALjwMHARNBoMBiB/2vEe/vxstrApcJZzQbnQ==}
+    dev: false
+
+  /@octokit/types@13.4.0:
+    resolution: {integrity: sha512-WlMegy3lPXYWASe3k9Jslc5a0anrYAYMWtsFrxBTdQjS70hvLH6C+PGvHbOsgy3RA3LouGJoU/vAt4KarecQLQ==}
+    dependencies:
+      '@octokit/openapi-types': 22.0.1
+    dev: false
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
