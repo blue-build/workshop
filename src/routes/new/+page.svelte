@@ -138,7 +138,11 @@
                     important not to expose the cosign keys to third parties. BlueBuild can set
                     these up automatically for you. The keys will be generated in your browser and
                     transmitted over HTTPS to GitHub. If you do not trust BlueBuild to do this, you
-                    can skip it for now and do it manually instead.
+                    can skip it for now and do it manually instead. <a
+                        href="https://github.com/blue-build/workshop/blob/main/TRUST.md"
+                    >
+                        Read more about trust...
+                    </a>
                 </p>
 
                 <div class="mt-6 flex w-full flex-row flex-wrap justify-between">
