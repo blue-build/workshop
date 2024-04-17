@@ -1,4 +1,4 @@
-import { ghApiGet, ghApiPost, ghApiPut } from "$lib/ts/github/api";
+import { ghApiGet, ghApiPut } from "$lib/ts/github/api";
 import { createLogStream } from "$lib/ts/misc/logStream";
 import type { Endpoints } from "@octokit/types";
 import _sodium from "libsodium-wrappers";
