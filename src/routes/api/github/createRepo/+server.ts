@@ -49,7 +49,7 @@ export async function POST({ request, cookies }): Promise<Response> {
             }
         );
         if (!readmeUpdate.ok) {
-            log("Updating README failed: " + JSON.stringify(readme));
+            log("Updating README failed: " + JSON.stringify(readmeUpdate));
         } else {
             log("Updated README successfully!");
         }
@@ -80,7 +80,7 @@ export async function POST({ request, cookies }): Promise<Response> {
             }
         );
         if (!recipeUpdate.ok) {
-            log("Updating recipe failed: " + JSON.stringify(recipe));
+            log("Updating recipe failed: " + JSON.stringify(recipeUpdate));
         } else {
             log("Updated recipe successfully!");
         }
