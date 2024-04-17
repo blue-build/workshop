@@ -12,7 +12,7 @@
     let log: Array<string> = [];
     export let data;
 
-    let repoName = document.getElementById("reponame");
+    let repoName = "";
 
     async function createRepo() {
         setupStep = "inprogress";

@@ -34,7 +34,7 @@
                     class="absolute h-6 w-6 translate-y-10 transition-transform dark:translate-y-0"
                 />
             </Button>
-            {#if data.githubUser.login}
+            {#if data.githubUser}
                 <Avatar.Root>
                     <Avatar.Image src={data.githubUser.avatar_url} alt={data.githubUser.login} />
                     <Avatar.Fallback>CN</Avatar.Fallback>

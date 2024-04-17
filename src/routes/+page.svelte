@@ -11,7 +11,7 @@
     >
         My repositories
     </h2>
-    {#if !data.githubUser.login}
+    {#if !data.githubUser}
         <Button href="/api/login" size="lg" variant="default" class="mx-auto max-w-xl">
             Log in with GitHub</Button
         >
