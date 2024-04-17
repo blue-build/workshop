@@ -1,6 +1,6 @@
-# Tauri + Svelte + Typescript
+# BlueBuild Workshop
 
-This template should help get you started developing with Tauri, Svelte and TypeScript in Vite.
+Tinkering with your OS through a webapp, how exciting!
 
 ## Development
 
