@@ -21,7 +21,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
             path: "/",
             secure: import.meta.env.PROD,
             httpOnly: true,
-            maxAge: 60 * 10,
+            maxAge: 60 * 60 * 24,
             sameSite: "lax"
         });
 
