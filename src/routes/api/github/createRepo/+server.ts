@@ -3,7 +3,6 @@ import { createLogStream } from "$lib/ts/misc/logStream";
 import type { Endpoints } from "@octokit/types";
 
 export async function POST({ request, cookies }): Promise<Response> {
-    return new Response("hi");
     return await createLogStream(async (log) => {
         const token = cookies.get("github_oauth_token");
         if (token === undefined) throw new Error("Not logged in");
