@@ -12,7 +12,6 @@
     // import { PUBLIC_ADAPTER } from "$env/static/public";
 
     export let data;
-    console.log(data);
 </script>
 
 <Toaster />
