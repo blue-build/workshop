@@ -2,7 +2,8 @@ export async function load({ locals, cookies }) {
     const githubToken = cookies.get("github_oauth_token") ?? null;
     const githubUserResponse = await fetch("https://api.github.com/user", {
         headers: {
-            Authorization: `Bearer ${githubToken}`
+            Authorization: `Bearer ${githubToken}`,
+            "User-Agent": "BlueBuild Workshop"
         }
     });
 
