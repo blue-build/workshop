@@ -1,6 +1,5 @@
 export async function load({ locals }) {
     return {
-        githubUser: locals.githubUser,
-        githubToken: locals.githubToken
+        githubUser: locals.githubUser
     };
 }

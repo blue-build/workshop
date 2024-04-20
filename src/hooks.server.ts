@@ -8,7 +8,6 @@ export const handle: Handle = async ({ event, resolve }) => {
         }
     });
     event.locals.githubUser = githubUserResponse.ok ? await githubUserResponse.json() : null;
-    event.locals.githubToken = githubToken;
 
     return await resolve(event);
 };
