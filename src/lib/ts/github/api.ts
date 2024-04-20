@@ -5,7 +5,12 @@ export async function ghApiPost(
 ): Promise<{ ok: boolean; data: object }> {
     const res = await fetch(`https://api.github.com${path}`, {
         method: "post",
-        headers: { Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" },
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "BlueBuild Workshop",
+            Accept: "application/vnd.github+json"
+        },
         body: JSON.stringify(data)
     });
     return { data: await res.json(), ok: res.ok };
@@ -18,7 +23,12 @@ export async function ghApiPut(
 ): Promise<{ ok: boolean; data: object }> {
     const res = await fetch(`https://api.github.com${path}`, {
         method: "put",
-        headers: { Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" },
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "BlueBuild Workshop",
+            Accept: "application/vnd.github+json"
+        },
         body: JSON.stringify(data)
     });
     return { data: await res.json(), ok: res.ok };
@@ -30,7 +40,12 @@ export async function ghApiGet(
 ): Promise<{ ok: boolean; data: object }> {
     const res = await fetch(`https://api.github.com${path}`, {
         method: "get",
-        headers: { Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" }
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "BlueBuild Workshop",
+            Accept: "application/vnd.github+json"
+        }
     });
     return { data: await res.json(), ok: res.ok };
 }
