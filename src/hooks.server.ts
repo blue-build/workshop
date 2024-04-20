@@ -14,5 +14,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         event.locals.githubUser = null;
     }
 
+    event.locals.hello = "world";
+
     return resolve(event);
 };

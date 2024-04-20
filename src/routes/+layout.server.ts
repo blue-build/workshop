@@ -1,5 +1,6 @@
 export async function load({ locals }) {
     return {
-        githubUser: locals.githubUser
+        githubUser: locals.githubUser,
+        hello: locals.world
     };
 }
