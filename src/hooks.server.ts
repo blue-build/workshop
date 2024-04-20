@@ -7,12 +7,7 @@ export const handle: Handle = async ({ event, resolve }) => {
             Authorization: `Bearer ${githubToken}`
         }
     });
-    const githubUser = await githubUserResponse.json();
-    if (githubUserResponse.ok) {
-        event.locals.githubUser = githubUser;
-    } else {
-        event.locals.githubUser = null;
-    }
+    event.locals.githubUser = githubUserResponse.ok ? await githubUserResponse.json() : null;
 
     event.locals.hello = "world";
 
