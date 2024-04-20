@@ -1,6 +1,6 @@
-export async function load({ locals, cookies }) {
+export async function load({ locals }) {
     return {
         githubUser: locals.githubUser,
-        cookies: JSON.stringify(cookies.getAll())
+        githubToken: locals.githubToken
     };
 }
