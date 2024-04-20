@@ -26,12 +26,13 @@
                 "content-type": "application/json"
             }
         });
-        readLogStream(res, (value) => {
-            log = [...log, value];
-            if (value.includes("DONE!")) {
-                setupStep = "cosign";
-            }
-        });
+        console.log(await res.text());
+        // readLogStream(res, (value) => {
+        //     log = [...log, value];
+        //     if (value.includes("DONE!")) {
+        //         setupStep = "cosign";
+        //     }
+        // });
     }
 
     async function setupCosign() {
