@@ -1,5 +1,4 @@
-export async function load({ locals, parent }) {
-    await parent();
+export async function load({ locals }) {
     return {
         githubUser: locals.githubUser,
         hello: locals.hello
