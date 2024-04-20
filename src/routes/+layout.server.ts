@@ -7,6 +7,7 @@ export async function load({ locals, cookies }) {
     });
 
     return {
-        githubUser: githubUserResponse.ok ? await githubUserResponse.json() : null
+        githubUser: githubUserResponse.ok ? await githubUserResponse.json() : null,
+        status: githubUserResponse.statusText + " " + githubUserResponse.status
     };
 }
