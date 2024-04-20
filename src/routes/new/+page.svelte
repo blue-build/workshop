@@ -23,7 +23,8 @@
                 login: data.githubUser.login
             }),
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                Accept: "text/event-stream"
             }
         });
         readLogStream(res, (value) => {
@@ -50,7 +51,8 @@
                 cosignPublicKey: keys.cosignPublicKey
             }),
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                Accept: "text/event-stream"
             }
         });
         readLogStream(res, (value) => {
