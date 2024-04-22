@@ -11,7 +11,9 @@ export async function createLogStream(
 
     return new Response(logStream, {
         headers: {
-            "Content-Type": "text/event-stream"
+            "Content-Type": "text/event-stream",
+            Connection: "keep-alive",
+            "Cache-Control": "no-cache"
         }
     });
 }
