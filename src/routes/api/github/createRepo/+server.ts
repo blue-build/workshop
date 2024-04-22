@@ -4,13 +4,13 @@ import type { Endpoints } from "@octokit/types";
 
 export async function POST({ request, cookies, platform }): Promise<Response> {
     let done = false;
-    async function waitForDone() {
-        while (!done) {
-            await new Promise((r) => setTimeout(r, 100));
-        }
-        return null;
-    }
-    platform?.context.waitUntil(waitForDone());
+    // async function waitForDone() {
+    //     while (!done) {
+    //         await new Promise((r) => setTimeout(r, 100));
+    //     }
+    //     return null;
+    // }
+    // platform?.context.waitUntil(waitForDone());
 
     return await createLogStream(async (log) => {
         const token = cookies.get("github_oauth_token");
