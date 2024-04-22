@@ -28,26 +28,12 @@
             }
         });
         console.log(res);
-        const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
-        console.log(reader);
-        // eslint-disable-next-line no-constant-condition
-        while (true) {
-            console.log("reading...");
-            const { value, done } = await reader.read();
-            console.log("received: ", value);
-            if (done) break;
+        readLogStream(res, (value) => {
             log = [...log, value];
             if (value.includes("DONE!")) {
                 setupStep = "cosign";
             }
-        }
-        console.log("DONE!");
-        // readLogStream(res, (value) => {
-        //     log = [...log, value];
-        //     if (value.includes("DONE!")) {
-        //         setupStep = "cosign";
-        //     }
-        // });
+        });
     }
 
     async function setupCosign() {
