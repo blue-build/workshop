@@ -8,7 +8,7 @@
     import { readLogStream } from "$lib/ts/misc/logStream.js";
 
     type SetupStep = "start" | "inprogress" | "cosign" | "done" | "failed";
-    let setupStep = "start" as SetupStep;
+    let setupStep: SetupStep = "cosign";
     let log: Array<string> = [];
     export let data;
 
@@ -140,8 +140,10 @@
                     important not to expose the cosign keys to third parties. BlueBuild can set
                     these up automatically for you. The keys will be generated in your browser and
                     transmitted over HTTPS to GitHub. If you do not trust BlueBuild to do this, you
-                    can skip it for now and do it manually instead. <a
+                    can skip it for now and do it manually instead.
+                    <a
                         href="https://github.com/blue-build/workshop/blob/main/TRUST.md"
+                        class="underline"
                     >
                         Read more about trust...
                     </a>
