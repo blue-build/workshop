@@ -162,7 +162,7 @@
                     </Button>
                 </div>
             {:else}
-                Done!
+                You're all set!
                 <Button
                     href="https://github.com/{data.githubUser.login}/{repoName}"
                     size="lg"
