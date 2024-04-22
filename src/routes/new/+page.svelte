@@ -8,7 +8,7 @@
     import { readLogStream } from "$lib/ts/misc/logStream.js";
 
     type SetupStep = "start" | "inprogress" | "cosign" | "done" | "failed";
-    let setupStep: SetupStep = "cosign";
+    let setupStep: SetupStep = "start";
     let log: Array<string> = [];
     export let data;
 
