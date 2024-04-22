@@ -1,15 +1,14 @@
 export async function createLogStream(
     func: (log: (newLogLine: string) => void) => void
 ): Promise<Response> {
-    const logStream = new ReadableStream({
-        async start(logStream) {
-            await func((newLogLine: string) => {
-                logStream.enqueue(newLogLine + "\n");
-            });
-        }
+    const { readable, writable } = new TransformStream();
+    const writer = writable.getWriter();
+
+    func((newLogLine: string) => {
+        writer.write(new TextEncoder().encode(newLogLine + "\n"));
     });
 
-    return new Response(logStream, {
+    return new Response(readable, {
         headers: {
             "Content-Type": "text/event-stream",
             Connection: "keep-alive",
