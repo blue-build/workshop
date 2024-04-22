@@ -28,7 +28,7 @@
             }
         });
         console.log(res);
-        const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+        const reader = res.body.getReader();
         console.log(reader);
         // eslint-disable-next-line no-constant-condition
         while (true) {
