@@ -27,6 +27,7 @@
                 Accept: "text/event-stream"
             }
         });
+        console.log(res);
         readLogStream(res, (value) => {
             log = [...log, value];
             if (value.includes("DONE!")) {
