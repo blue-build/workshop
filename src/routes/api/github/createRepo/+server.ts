@@ -22,6 +22,26 @@ export async function POST({ request, cookies }): Promise<Response> {
         const repoData =
             repo.data as Endpoints["POST /repos/{template_owner}/{template_repo}/generate"]["response"]["data"];
 
+        // Set repository topics
+        log("Fetching template repo topics...");
+        const topics = await ghApiGet(token, `/repos/blue-build/template/topics`);
+        if (!topics.ok) {
+            log("Fetching template topics failed: " + JSON.stringify(topics));
+        } else {
+            log("Fetched template topics successfully!");
+        }
+        const topicsData =
+            topics.data as Endpoints["GET /repos/{owner}/{repo}/topics"]["response"]["data"];
+        log("Setting topics for newly generated repository...");
+        const setTopics = await ghApiPut(token, `/repos/${repoData.full_name}/topics`, {
+            names: topicsData.names
+        });
+        if (!setTopics.ok) {
+            log("Setting topics failed: " + JSON.stringify(setTopics));
+        } else {
+            log("Set topics successfully!");
+        }
+
         // hacky fix for issues caused by repository being empty right after generation
         log("Taking a short break to make sure the repo gets fully generated...");
         await new Promise((r) => setTimeout(r, 2000));
