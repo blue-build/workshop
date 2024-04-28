@@ -22,6 +22,8 @@ distrobox create -i ghcr.io/blue-build/workshop-dev -n workshop-dev -p # add --n
 distrobox enter workshop-dev
 ```
 
+The container image can also be used with the [just](https://just.systems/) command `just pnpm`, which runs pnpm inside the container. All commands below are supported in the container.
+
 Install deps
 
 ```sh
