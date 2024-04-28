@@ -1,6 +1,6 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
-RUN dnf check-update -y && \
+RUN dnf upgrade -y && \
     dnf install -y \
         nodejs \
         pnpm \
