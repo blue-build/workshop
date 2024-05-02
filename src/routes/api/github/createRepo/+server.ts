@@ -78,7 +78,7 @@ export async function POST({ request, cookies }): Promise<Response> {
         log("Fetching template recipe.yml...");
         const recipe = await ghApiGet(
             token,
-            `/repos/${repoData.full_name}/contents/config/recipe.yml`
+            `/repos/${repoData.full_name}/contents/recipes/recipe.yml`
         );
         if (!recipe.ok) {
             log("Fetching recipe failed: " + JSON.stringify(recipe));
@@ -92,7 +92,7 @@ export async function POST({ request, cookies }): Promise<Response> {
         // update
         const recipeUpdate = await ghApiPut(
             token,
-            `/repos/${repoData.full_name}/contents/config/recipe.yml`,
+            `/repos/${repoData.full_name}/contents/recipes/recipe.yml`,
             {
                 message: "chore(automatic): change image name in recipe",
                 content: btoa(recipeStr),
