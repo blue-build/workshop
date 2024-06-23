@@ -5,9 +5,10 @@
     import { Toaster } from "$lib/ui/components/ui/sonner";
     import { ModeWatcher } from "mode-watcher";
     import { toggleMode } from "mode-watcher";
-    import { LucideSun, LucideMoon, LucideUserRound } from "lucide-svelte";
+    import { LucideSun, LucideMoon, LucideUserRound, LucideExternalLink } from "lucide-svelte";
     import Button from "$lib/ui/components/ui/button/button.svelte";
     import * as Avatar from "$lib/ui/components/ui/avatar";
+    import * as DropdownMenu from "$lib/ui/components/ui/dropdown-menu";
     // @ts-ignore
     // import { PUBLIC_ADAPTER } from "$env/static/public";
 
@@ -35,10 +36,37 @@
                 />
             </Button>
             {#if data.githubUser}
-                <Avatar.Root>
-                    <Avatar.Image src={data.githubUser.avatar_url} alt={data.githubUser.login} />
-                    <Avatar.Fallback>CN</Avatar.Fallback>
-                </Avatar.Root>
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger>
+                        <Avatar.Root>
+                            <Avatar.Image
+                                src={data.githubUser.avatar_url}
+                                alt={data.githubUser.login}
+                            />
+                            <Avatar.Fallback>CN</Avatar.Fallback>
+                        </Avatar.Root>
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content>
+                        <DropdownMenu.Group>
+                            <DropdownMenu.Label>{data.githubUser.login}</DropdownMenu.Label>
+                            <DropdownMenu.Separator class="bg-border" />
+                            <DropdownMenu.Item>
+                                <a
+                                    href={`https://github.com/${data.githubUser.login}`}
+                                    class="flex items-center gap-1"
+                                >
+                                    github.com/{data.githubUser.login}
+                                    <LucideExternalLink class="inline-block max-w-4" />
+                                </a>
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item>
+                                <button on:click={() => alert("unimplemented, just clear cookies")}>
+                                    Log out
+                                </button>
+                            </DropdownMenu.Item>
+                        </DropdownMenu.Group>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
             {:else}
                 <Avatar.Root>
                     <Avatar.Fallback>
