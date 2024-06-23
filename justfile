@@ -5,5 +5,5 @@ pnpm *command:
     podman run -it \
     -w /host -v $PWD:/host --security-opt label=disable \
     --network host --env DISPLAY \
-    --pull newer localhost/workshop-dev \
+    --pull newer ghcr.io/blue-build/workshop-dev \
     pnpm {{command}}
