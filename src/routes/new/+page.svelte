@@ -6,6 +6,7 @@
     import { Progress } from "$lib/ui/components/ui/progress";
     import Log from "$lib/ui/components/newImage/log.svelte";
     import { readLogStream } from "$lib/ts/misc/logStream.js";
+    import { beforeNavigate } from "$app/navigation";
 
     type SetupStep = "start" | "inprogress" | "cosign" | "done" | "failed";
     let setupStep: SetupStep = "start";
@@ -14,7 +15,20 @@
 
     let repoName = "";
 
+    let dirty = false;
+    beforeNavigate(({ cancel }) => {
+        if (dirty) {
+            const confirmed = window.confirm(
+                "Warning: Your repo might be left in an incomplete state if you navigate off of this page. Press OK to leave."
+            );
+            if (!confirmed) {
+                cancel();
+            }
+        }
+    });
+
     async function createRepo() {
+        dirty = true;
         setupStep = "inprogress";
         const res = await fetch("/api/github/createRepo", {
             method: "POST",
@@ -59,6 +73,7 @@
             log = [...log, value];
             if (value.includes("DONE!")) {
                 setupStep = "done";
+                dirty = false;
             }
         });
     }
@@ -153,6 +168,7 @@
                     <Button
                         on:click={() => {
                             setupStep = "done";
+                            dirty = false;
                         }}
                         size="lg"
                         variant="ghost"
