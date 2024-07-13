@@ -63,7 +63,7 @@ export async function POST({ request, cookies }): Promise<Response> {
             token,
             `/repos/${repoData.full_name}/contents/README.md`,
             {
-                message: "chore(automatic): replace all reference to template in README",
+                message: "chore(automatic): replace all references to template in README",
                 content: btoa(readmeStr),
                 sha: readmeData.sha
             }
