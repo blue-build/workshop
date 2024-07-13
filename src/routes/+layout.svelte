@@ -60,9 +60,7 @@
                                 </a>
                             </DropdownMenu.Item>
                             <DropdownMenu.Item>
-                                <button on:click={() => alert("unimplemented, just clear cookies")}>
-                                    Log out
-                                </button>
+                                <a href="/api/login/logout">Log out</a>
                             </DropdownMenu.Item>
                         </DropdownMenu.Group>
                     </DropdownMenu.Content>
