@@ -20,7 +20,12 @@
 
 <div class="min-h-screen bg-background text-foreground">
     <header class="flex flex-row border-b border-muted px-8 py-4">
-        <h1 class="place-self-center text-xl"><a href="/">BlueBuild Workshop</a></h1>
+        <h1 class="place-self-center text-xl">
+            <a href="/">
+                <img src="/logo-light.svg" alt="BlueBuild Workshop" class="h-10 dark:hidden" />
+                <img src="/logo-dark.svg" alt="BlueBuild Workshop" class="h-10 hidden dark:block" />
+            </a>
+        </h1>
         <div class="ml-auto flex flex-row gap-2">
             <Button
                 on:click={toggleMode}
