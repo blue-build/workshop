@@ -13,4 +13,4 @@ RUN dnf upgrade -y && \
         file \
         libappindicator-gtk3-devel \
         librsvg2-devel && \
-    dnf group install -y "Development Tools"
+    dnf group install -y "development-tools"
