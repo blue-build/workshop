@@ -3,6 +3,7 @@
     import * as Card from "$lib/ui/components/ui/card";
     import { Button } from "$lib/ui/components/ui/button";
     import * as Select from "$lib/ui/components/ui/select";
+    import * as Alert from "$lib/ui/components/ui/alert";
     import { LucideCopy, LucideFolderGit2 } from "lucide-svelte";
     import type { Selected } from "bits-ui";
     import { toast } from "svelte-sonner";
@@ -33,15 +34,29 @@
 </script>
 
 <h2 class="text-3xl font-semibold">Image list</h2>
-<div class="prose max-w-7xl p-4">
-    <p>This is an interactive list of bootable container images based on rpm-ostree or bootc.</p>
-    <p>Feel free to use this list to pick an image to build on or to install directly.</p>
+<div class="prose max-w-5xl p-4">
     <p>
-        Always consult the image maintainer's documentation before using these images. We cannot
-        guarantee that the information on this page is up-to-date. The images listed here will
-        probably have their own image tagging systems, preferred installation steps, and recommended
-        images. This page is to be used only as a reference.
+        This is an interactive list of bootable container images based on rpm-ostree or bootc. Feel
+        free to use this to pick an image to build on or to install directly.
     </p>
+    <p>
+        This list is an experimental project, which may be integrated better into the BlueBuild
+        Workshop in the future. All the data on this page is contained <a
+            href="https://github.com/blue-build/workshop/blob/main/src/data/images.ts"
+            class="underline"
+        >
+            in this file
+        </a>. Contributions and complaints are welcome.
+    </p>
+    <Alert.Root class="mb-3 mt-6">
+        <Alert.Title>Important notes</Alert.Title>
+        <Alert.Description class="text-md">
+            Always consult the image maintainer's documentation before using these images. We cannot
+            guarantee that the information on this page is up-to-date or complete. The projects
+            listed here will probably have their own image tagging systems, preferred installation
+            steps, and recommended images. This page is to be used only as a reference.
+        </Alert.Description>
+    </Alert.Root>
 </div>
 
 <div>
