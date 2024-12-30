@@ -5,6 +5,7 @@
     import * as Select from "$lib/ui/components/ui/select";
     import { LucideCopy, LucideFolderGit2 } from "lucide-svelte";
     import type { Selected } from "bits-ui";
+    import { toast } from "svelte-sonner";
 
     // TODO add sorting (by popularity)
 
@@ -164,7 +165,16 @@
                                 <div class="min-w-max font-mono text-sm">
                                     {image.url}
                                 </div>
-                                <Button title="Copy to clipboard" variant="ghost">
+                                <Button
+                                    title="Copy to clipboard"
+                                    variant="ghost"
+                                    onclick={() => {
+                                        navigator.clipboard.writeText(image.url);
+                                        toast.success("Copied to clipboard", {
+                                            description: image.url
+                                        });
+                                    }}
+                                >
                                     <LucideCopy class="h-5 w-5" />
                                 </Button>
                             </div>
