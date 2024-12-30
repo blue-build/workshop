@@ -9,10 +9,14 @@
     import Button from "$lib/ui/components/ui/button/button.svelte";
     import * as Avatar from "$lib/ui/components/ui/avatar";
     import * as DropdownMenu from "$lib/ui/components/ui/dropdown-menu";
-    // @ts-ignore
     // import { PUBLIC_ADAPTER } from "$env/static/public";
 
-    export let data;
+    interface Props {
+        data: any;
+        children?: import("svelte").Snippet;
+    }
+
+    let { data, children }: Props = $props();
 </script>
 
 <Toaster />
