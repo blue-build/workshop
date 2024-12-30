@@ -10,7 +10,6 @@ export type KnownDesktop =
     | "gnome"
     | "kde"
     | "cosmic"
-    | "sway"
     | "budgie"
     | "lxqt"
     | "xfce"
