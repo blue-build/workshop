@@ -84,7 +84,7 @@
                                 <div class="min-w-max font-mono text-sm">
                                     {image.url}
                                 </div>
-                                <Button title="Copy to clipboard" variant="ghost" p-2 )}>
+                                <Button title="Copy to clipboard" variant="ghost">
                                     <LucideCopy class="h-5 w-5" />
                                 </Button>
                             </div>
