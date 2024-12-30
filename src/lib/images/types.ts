@@ -3,6 +3,7 @@ export type ImageCategory = {
     description: Array<string>;
     repo: string;
     images: Array<Image>;
+    stability: "stable" | "beta" | "experimental";
 };
 
 export type KnownDesktop =
@@ -26,5 +27,6 @@ export type Image = {
     properties: {
         desktop: KnownDesktop;
         nvidia: NvidiaDriverType;
+        stability?: "stable" | "experimental";
     };
 };

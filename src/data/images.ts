@@ -3,7 +3,6 @@ import type { ImageCategory, KnownDesktop, NvidiaDriverType } from "$lib/images/
 
 // TODO add tag support?
 // TODO add nonfree codec property?
-// TODO add support property?
 
 export const imageCategories: Array<ImageCategory> = [
     {
@@ -13,6 +12,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Bazzite is a cloud native image built upon Fedora Atomic Desktops that brings the best of Linux gaming to all of your devices - including your favorite handheld."
         ],
         repo: "https://github.com/ublue-os/bazzite/",
+        stability: "stable",
         images: generateMatrix({
             baseName: ["bazzite", "bazzite-deck"],
             desktop: ["kde", "gnome"],
@@ -57,6 +57,7 @@ export const imageCategories: Array<ImageCategory> = [
             "For end users it provides a system as reliable as a Chromebook with near-zero maintenance while providing developers with a powerful cloud-native development mode. Built with next generation tech, for people who need their machines to get work done."
         ],
         repo: "https://github.com/ublue-os/bluefin/",
+        stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
@@ -88,6 +89,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Get onboard. Aurora is the ultimate desktop OS for your developer workstation or the perfect maintenance-free OS for everyone."
         ],
         repo: "https://github.com/ublue-os/bluefin/",
+        stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
@@ -118,6 +120,7 @@ export const imageCategories: Array<ImageCategory> = [
             "A common main image for all other uBlue images, with minimal (but important) adjustments to Fedora."
         ],
         repo: "https://github.com/ublue-os/main",
+        stability: "stable",
         images: generateMatrix({
             base: ["silverblue", "kinoite", "sericea", "onyx", "base", "lazurite", "vauxite"],
             nvidia: [false, true]
@@ -137,6 +140,7 @@ export const imageCategories: Array<ImageCategory> = [
         category: "wayblue",
         description: ["Fedora Atomic images for wayland compositors."],
         repo: "https://github.com/wayblueorg/wayblue",
+        stability: "beta",
         images: generateMatrix({
             compositor: ["wayfire", "hyprland", "sway", "river", "qtile"],
             nvidia: ["none", "open", "proprietary"],
@@ -151,7 +155,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/wayblueorg/" + name,
                 properties: {
                     desktop: compositor as KnownDesktop,
-                    nvidia: nvidia as NvidiaDriverType
+                    nvidia: nvidia as NvidiaDriverType,
+                    stability: (compositor as string) == "qtile" ? "experimental" : undefined
                 }
             };
         })
@@ -160,6 +165,7 @@ export const imageCategories: Array<ImageCategory> = [
         category: "secureblue",
         description: ["Hardened Fedora Atomic and Fedora CoreOS images."],
         repo: "https://github.com/secureblue/secureblue",
+        stability: "stable",
         images: generateMatrix({
             base: [
                 "silverblue",
@@ -201,7 +207,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/secureblue/" + name,
                 properties: {
                     desktop,
-                    nvidia: nvidia as NvidiaDriverType
+                    nvidia: nvidia as NvidiaDriverType,
+                    stability: (base as string).startsWith("wayblue") ? "beta" : undefined
                 }
             };
         })
@@ -213,6 +220,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Unofficial atomic Fedora OCI images built on Fedora infrastructure based on the official variants."
         ],
         repo: "https://gitlab.com/fedora/ostree/ci-test",
+        stability: "experimental",
         images: [
             "silverblue",
             "kinoite",
@@ -240,6 +248,7 @@ export const imageCategories: Array<ImageCategory> = [
         category: "fedora-bootc",
         description: ["Official atomic bootable container base image for Fedora."],
         repo: "https://gitlab.com/fedora/bootc/base-images",
+        stability: "stable",
         images: [
             {
                 name: "fedora-bootc",
@@ -258,6 +267,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Check available tags from the repo."
         ],
         repo: "https://gitlab.com/redhat/centos-stream/containers/bootc",
+        stability: "stable",
         images: [
             {
                 name: "fedora-bootc",
@@ -276,6 +286,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Experimental Universal Blue -style images with a CentOS base, a lot of maintainer and addition overlap with Universal Blue."
         ],
         repo: "https://github.com/centos-workstation/",
+        stability: "experimental",
         images: [
             {
                 name: "main",

@@ -15,7 +15,17 @@
     {#each imageCategories as category}
         <section class="flex flex-col gap-5 p-4 outline-dashed outline-secondary">
             <header>
-                <h3 class="text-2xl">{category.category}</h3>
+                <div class="flex flex-row items-center gap-3">
+                    <h3 class="text-2xl">{category.category}</h3>
+                    <div
+                        class={"rounded-full px-3 " +
+                            (category.stability == "stable"
+                                ? "bg-green-200 dark:bg-green-900"
+                                : "bg-yellow-200 dark:bg-yellow-900")}
+                    >
+                        {category.stability}
+                    </div>
+                </div>
                 <a
                     href={category.repo}
                     target="_blank"
@@ -44,8 +54,20 @@
             <div class="flex flex-row gap-4 overflow-x-scroll">
                 {#each category.images as image}
                     <Card.Root class="min-w-min">
-                        <Card.Header class="border-b bg-secondary pb-4">
+                        <Card.Header
+                            class="flex flex-row items-center gap-2 border-b bg-secondary pb-4"
+                        >
                             {image.name}
+                            {#if image.properties.stability != undefined}
+                                <div
+                                    class={"h-fit rounded-full px-3 text-sm " +
+                                        (image.properties.stability == "stable"
+                                            ? "bg-green-200 dark:bg-green-900"
+                                            : "bg-yellow-200 dark:bg-yellow-900")}
+                                >
+                                    {image.properties.stability}
+                                </div>
+                            {/if}
                         </Card.Header>
                         <Card.Content class="flex w-full flex-col gap-4 pt-4">
                             <div class="flex flex-col">
