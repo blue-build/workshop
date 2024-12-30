@@ -4,16 +4,27 @@
 
     type $$Props = ProgressPrimitive.Props | { state: "inprogress" | "failed" };
 
-    let className: $$Props["class"] = undefined;
-    export let max: $$Props["max"] = 100;
-    export let value: $$Props["value"] = undefined;
-    export let state: "inprogress" | "failed" = "inprogress";
-    export { className as class };
+    interface Props {
+        class?: $$Props["class"];
+        max?: $$Props["max"];
+        value?: $$Props["value"];
+        state?: "inprogress" | "failed";
+        [key: string]: any
+    }
+
+    let {
+        class: className = undefined,
+        max = 100,
+        value = undefined,
+        state = "inprogress",
+        ...rest
+    }: Props = $props();
+    
 </script>
 
 <ProgressPrimitive.Root
     class={cn("relative h-8 w-full overflow-hidden border-2", className)}
-    {...$$restProps}
+    {...rest}
 >
     <div
         class={`h-full w-[200%] flex-1 transition-all ${state === "failed" ? "bg-destructive" : "bg-accent"} `}
@@ -24,5 +35,5 @@
                 : "background: repeating-linear-gradient(-45deg, transparent, transparent 10%, hsl(var(--destructive)) 10%, hsl(var(--destructive)) 25%)"
         }
 		`}
-    />
+></div>
 </ProgressPrimitive.Root>

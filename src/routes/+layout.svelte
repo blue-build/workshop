@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import "../app.pcss";
     import "@fontsource-variable/rubik";
     import "@fontsource/ibm-plex-mono";
@@ -23,7 +23,7 @@
         <h1 class="place-self-center text-xl">
             <a href="/">
                 <img src="/logo-light.svg" alt="BlueBuild Workshop" class="h-10 dark:hidden" />
-                <img src="/logo-dark.svg" alt="BlueBuild Workshop" class="h-10 hidden dark:block" />
+                <img src="/logo-dark.svg" alt="BlueBuild Workshop" class="hidden h-10 dark:block" />
             </a>
         </h1>
         <div class="ml-auto flex flex-row gap-2">
@@ -81,6 +81,6 @@
     </header>
 
     <main class="p-4">
-        <slot />
+        {@render children?.()}
     </main>
 </div>

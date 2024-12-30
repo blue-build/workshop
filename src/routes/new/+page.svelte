@@ -9,13 +9,13 @@
     import { beforeNavigate } from "$app/navigation";
 
     type SetupStep = "start" | "inprogress" | "cosign" | "done" | "failed";
-    let setupStep: SetupStep = "start";
-    let log: Array<string> = [];
-    export let data;
+    let setupStep: SetupStep = $state("start");
+    let log: Array<string> = $state([]);
+    let { data } = $props();
 
-    let repoName = "";
+    let repoName = $state("");
 
-    let dirty = false;
+    let dirty = $state(false);
     beforeNavigate(({ cancel }) => {
         if (dirty) {
             const confirmed = window.confirm(

@@ -2,7 +2,7 @@
     import { Button } from "$lib/ui/components/ui/button";
     import * as Card from "$lib/ui/components/ui/card";
     import { LucidePlus } from "lucide-svelte";
-    export let data;
+    let { data } = $props();
 </script>
 
 <div class="min-w-screen font-m flex min-h-screen flex-col gap-4">
