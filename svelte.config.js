@@ -16,7 +16,11 @@ const config = {
         adapter:
             process.env.PUBLIC_ADAPTER === "static"
                 ? adapterStatic({ strict: false })
-                : adapterCloudflare()
+                : adapterCloudflare(),
+
+        alias: {
+            $data: "./src/data"
+        }
     }
 };
 
