@@ -29,7 +29,7 @@
                 Found {data.bluebuildRepos.length} repositories with the
                 <span class="font-mono">bluebuild-image</span> GitHub topic.
             </p>
-            <div class="grid grid-cols-4">
+            <div class="grid grid-cols-4 gap-4">
                 {#each data.bluebuildRepos as repo}
                     <Card.Root
                         title="This is placeholder content that will receive functionality in the future."
@@ -42,6 +42,7 @@
                             <Button variant="link" href={repo.html_url}>
                                 {repo.html_url}
                             </Button>
+                            <Button variant="link" href={`/edit/${repo.full_name}`}>Edit</Button>
                         </Card.Content>
                     </Card.Root>
                 {/each}
