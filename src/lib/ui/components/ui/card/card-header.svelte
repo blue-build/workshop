@@ -5,10 +5,16 @@
 
     type $$Props = HTMLAttributes<HTMLDivElement> | { variant: "normal" | "elevated" };
 
-    let className: $$Props["class"] = undefined;
-    export { className as class };
+    
 
-    export let variant: "normal" | "elevated" = "normal";
+    interface Props {
+        class?: $$Props["class"];
+        variant?: "normal" | "elevated";
+        children?: import('svelte').Snippet;
+        [key: string]: any
+    }
+
+    let { class: className = undefined, variant = "normal", children, ...rest }: Props = $props();
 
     const headerVariants = tv({
         base: "flex flex-col space-y-1.5",
@@ -24,6 +30,6 @@
     });
 </script>
 
-<div class={cn(headerVariants({ variant, className }), className)} {...$$restProps}>
-    <slot />
+<div class={cn(headerVariants({ variant, className }), className)} {...rest}>
+    {@render children?.()}
 </div>

@@ -4,13 +4,19 @@
 
 	type $$Props = AvatarPrimitive.FallbackProps;
 
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	interface Props {
+		class?: $$Props["class"];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let { class: className = undefined, children, ...rest }: Props = $props();
+	
 </script>
 
 <AvatarPrimitive.Fallback
 	class={cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </AvatarPrimitive.Fallback>
