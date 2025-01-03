@@ -61,14 +61,13 @@ export const imageCategories: Array<ImageCategory> = [
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
-            hardware: ["", "asus", "surface"]
+            hardware: ["", "hwe"]
         })
             .map(({ nvidia, dx, hardware }) => {
                 const name =
                     "bluefin" +
                     (dx ? "-dx" : "") +
-                    (hardware == "asus" ? "-asus" : "") +
-                    (hardware == "surface" ? "-surface" : "") +
+                    (hardware !== "" ? "-" + hardware : "") +
                     (nvidia ? "-nvidia" : "");
                 return {
                     name,
@@ -93,14 +92,13 @@ export const imageCategories: Array<ImageCategory> = [
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
-            hardware: ["", "asus", "surface"]
+            hardware: ["", "hwe"]
         })
             .map(({ nvidia, dx, hardware }) => {
                 const name =
                     "aurora" +
                     (dx ? "-dx" : "") +
-                    (hardware == "asus" ? "-asus" : "") +
-                    (hardware == "surface" ? "-surface" : "") +
+                    (hardware !== "" ? "-" + hardware : "") +
                     (nvidia ? "-nvidia" : "");
                 return {
                     name,
@@ -179,9 +177,8 @@ export const imageCategories: Array<ImageCategory> = [
                 "securecore",
                 "securecore-zfs"
             ],
-            nvidia: ["none", "open", "proprietary"],
-            userns: [false, true]
-        }).map(({ base, nvidia, userns }) => {
+            nvidia: ["none", "open", "proprietary"]
+        }).map(({ base, nvidia }) => {
             const name =
                 base +
                 (nvidia == "open"
@@ -189,7 +186,6 @@ export const imageCategories: Array<ImageCategory> = [
                     : nvidia == "proprietary"
                       ? "-nvidia"
                       : "-main") +
-                (userns ? "-userns" : "") +
                 "-hardened";
             const desktop = (
                 fedoraCodewordToKnownDesktop(base as string) != "none"
