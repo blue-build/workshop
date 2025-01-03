@@ -266,7 +266,7 @@ export const imageCategories: Array<ImageCategory> = [
         stability: "stable",
         images: [
             {
-                name: "fedora-bootc",
+                name: "centos-bootc",
                 url: "quay.io/centos-bootc/centos-bootc",
                 properties: {
                     desktop: "none",
