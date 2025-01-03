@@ -1,12 +1,3 @@
-export type ImageCategory = {
-    category: string;
-    description: Array<string>;
-    repo: string;
-    website?: string;
-    images: Array<Image>;
-    stability: "stable" | "beta" | "experimental";
-};
-
 export type KnownDesktop =
     | "gnome"
     | "kde"
@@ -19,7 +10,19 @@ export type KnownDesktop =
     | "river"
     | "hyprland"
     | "none";
+
 export type NvidiaDriverType = "proprietary" | "open" | "none";
+
+export type Stability = "stable" | "beta" | "experimental";
+
+export type ImageCategory = {
+    category: string;
+    description: Array<string>;
+    repo: string;
+    website?: string;
+    images: Array<Image>;
+    stability: Stability;
+};
 
 export type Image = {
     name: string;
@@ -27,6 +30,6 @@ export type Image = {
     properties: {
         desktop: KnownDesktop;
         nvidia: NvidiaDriverType;
-        stability?: "stable" | "experimental";
+        stability?: Stability;
     };
 };
