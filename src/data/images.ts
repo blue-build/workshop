@@ -276,6 +276,27 @@ export const imageCategories: Array<ImageCategory> = [
         ]
     },
     {
+        category: "HeliumOS",
+        description: [
+            "An atomic desktop operating system for your devices.",
+            "Small project based on centos-bootc."
+        ],
+        repo: "https://codeberg.org/HeliumOS/bootc/",
+        website: "https://www.heliumos.org/",
+        stability: "experimental",
+        images: [
+            {
+                name: "bootc",
+                url: "oci.heliumos.org/heliumos/bootc",
+                properties: {
+                    desktop: "kde",
+                    nvidia: "none",
+                    kernel: "base"
+                }
+            }
+        ]
+    },
+    {
         category: "centos-workstation",
         description: [
             "Unoffical desktop images based on centos-bootc.",
