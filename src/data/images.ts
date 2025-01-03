@@ -1,5 +1,11 @@
 import { generateMatrix } from "$lib/images/helpers";
-import type { ImageCategory, KnownDesktop, NvidiaDriverType } from "$lib/images/types";
+import type {
+    CodecsSupport,
+    ImageCategory,
+    KernelType,
+    KnownDesktop,
+    NvidiaDriverType
+} from "$lib/images/types";
 
 // TODO add tag support?
 // TODO add nonfree codec property?
@@ -12,6 +18,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Bazzite is a cloud native image built upon Fedora Atomic Desktops that brings the best of Linux gaming to all of your devices - including your favorite handheld."
         ],
         repo: "https://github.com/ublue-os/bazzite/",
+        website: "https://bazzite.gg/",
         stability: "stable",
         images: generateMatrix({
             baseName: ["bazzite", "bazzite-deck"],
@@ -43,7 +50,9 @@ export const imageCategories: Array<ImageCategory> = [
                             ? "open"
                             : name.includes("nvidia")
                               ? "proprietary"
-                              : "none") as NvidiaDriverType
+                              : "none") as NvidiaDriverType,
+                        kernel: "bazzite" as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -57,6 +66,7 @@ export const imageCategories: Array<ImageCategory> = [
             "For end users it provides a system as reliable as a Chromebook with near-zero maintenance while providing developers with a powerful cloud-native development mode. Built with next generation tech, for people who need their machines to get work done."
         ],
         repo: "https://github.com/ublue-os/bluefin/",
+        website: "https://projectbluefin.io/",
         stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
@@ -74,7 +84,9 @@ export const imageCategories: Array<ImageCategory> = [
                     url: "ghcr.io/ublue-os/" + name,
                     properties: {
                         desktop: "gnome" as KnownDesktop,
-                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -88,6 +100,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Get onboard. Aurora is the ultimate desktop OS for your developer workstation or the perfect maintenance-free OS for everyone."
         ],
         repo: "https://github.com/ublue-os/aurora/",
+        website: "https://getaurora.dev/",
         stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
@@ -105,7 +118,9 @@ export const imageCategories: Array<ImageCategory> = [
                     url: "ghcr.io/ublue-os/" + name,
                     properties: {
                         desktop: "kde" as KnownDesktop,
-                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -118,6 +133,7 @@ export const imageCategories: Array<ImageCategory> = [
             "A common main image for all other uBlue images, with minimal (but important) adjustments to Fedora."
         ],
         repo: "https://github.com/ublue-os/main",
+        website: "https://universal-blue.org/",
         stability: "stable",
         images: generateMatrix({
             base: ["silverblue", "kinoite", "sericea", "onyx", "base", "lazurite", "vauxite"],
@@ -129,7 +145,9 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/ublue-os/" + name,
                 properties: {
                     desktop: fedoraCodewordToKnownDesktop(base as string),
-                    nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                    nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             };
         })
@@ -154,6 +172,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: compositor as KnownDesktop,
                     nvidia: nvidia as NvidiaDriverType,
+                    kernel: "base",
+                    codecs: "nonfree",
                     stability: (compositor as string) == "qtile" ? "experimental" : undefined
                 }
             };
@@ -204,6 +224,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop,
                     nvidia: nvidia as NvidiaDriverType,
+                    kernel: "base",
+                    codecs: "nonfree",
                     stability: (base as string).startsWith("wayblue") ? "beta" : undefined
                 }
             };
@@ -235,7 +257,9 @@ export const imageCategories: Array<ImageCategory> = [
                         base == "cosmic-atomic"
                             ? "cosmic"
                             : fedoraCodewordToKnownDesktop(base as string),
-                    nvidia: "none" as NvidiaDriverType
+                    nvidia: "none" as NvidiaDriverType,
+                    kernel: "base",
+                    codecs: "free"
                 }
             };
         })
@@ -244,6 +268,7 @@ export const imageCategories: Array<ImageCategory> = [
         category: "fedora-bootc",
         description: ["Official atomic bootable container base image for Fedora."],
         repo: "https://gitlab.com/fedora/bootc/base-images",
+        website: "https://docs.fedoraproject.org/en-US/bootc/",
         stability: "stable",
         images: [
             {
@@ -251,7 +276,9 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "quay.io/fedora/fedora-bootc",
                 properties: {
                     desktop: "none",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base",
+                    codecs: "free"
                 }
             }
         ]
@@ -263,6 +290,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Check available tags from the repo."
         ],
         repo: "https://gitlab.com/redhat/centos-stream/containers/bootc",
+        website: "https://docs.fedoraproject.org/en-US/bootc/",
         stability: "stable",
         images: [
             {
@@ -270,7 +298,9 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "quay.io/centos-bootc/centos-bootc",
                 properties: {
                     desktop: "none",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base",
+                    codecs: "free"
                 }
             }
         ]
@@ -289,7 +319,9 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/centos-workstation/main",
                 properties: {
                     desktop: "gnome",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             },
             {
@@ -297,7 +329,9 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/centos-workstation/achillobator",
                 properties: {
                     desktop: "gnome",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             }
         ]
