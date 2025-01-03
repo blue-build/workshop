@@ -1,5 +1,5 @@
 import { generateMatrix } from "$lib/images/helpers";
-import type { ImageCategory, KnownDesktop, NvidiaDriverType } from "$lib/images/types";
+import type { ImageCategory, KernelType, KnownDesktop, NvidiaDriverType } from "$lib/images/types";
 
 // TODO add tag support?
 // TODO add nonfree codec property?
@@ -44,7 +44,8 @@ export const imageCategories: Array<ImageCategory> = [
                             ? "open"
                             : name.includes("nvidia")
                               ? "proprietary"
-                              : "none") as NvidiaDriverType
+                              : "none") as NvidiaDriverType,
+                        kernel: "bazzite" as KernelType
                     }
                 };
             })
@@ -76,7 +77,8 @@ export const imageCategories: Array<ImageCategory> = [
                     url: "ghcr.io/ublue-os/" + name,
                     properties: {
                         desktop: "gnome" as KnownDesktop,
-                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType
                     }
                 };
             })
@@ -108,7 +110,8 @@ export const imageCategories: Array<ImageCategory> = [
                     url: "ghcr.io/ublue-os/" + name,
                     properties: {
                         desktop: "kde" as KnownDesktop,
-                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                        nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType
                     }
                 };
             })
@@ -133,7 +136,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/ublue-os/" + name,
                 properties: {
                     desktop: fedoraCodewordToKnownDesktop(base as string),
-                    nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType
+                    nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
+                    kernel: "base"
                 }
             };
         })
@@ -158,6 +162,7 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: compositor as KnownDesktop,
                     nvidia: nvidia as NvidiaDriverType,
+                    kernel: "base",
                     stability: (compositor as string) == "qtile" ? "experimental" : undefined
                 }
             };
@@ -208,6 +213,7 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop,
                     nvidia: nvidia as NvidiaDriverType,
+                    kernel: "base",
                     stability: (base as string).startsWith("wayblue") ? "beta" : undefined
                 }
             };
@@ -239,7 +245,8 @@ export const imageCategories: Array<ImageCategory> = [
                         base == "cosmic-atomic"
                             ? "cosmic"
                             : fedoraCodewordToKnownDesktop(base as string),
-                    nvidia: "none" as NvidiaDriverType
+                    nvidia: "none" as NvidiaDriverType,
+                    kernel: "base"
                 }
             };
         })
@@ -256,7 +263,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "quay.io/fedora/fedora-bootc",
                 properties: {
                     desktop: "none",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base"
                 }
             }
         ]
@@ -276,7 +284,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "quay.io/centos-bootc/centos-bootc",
                 properties: {
                     desktop: "none",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base"
                 }
             }
         ]
@@ -295,7 +304,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/centos-workstation/main",
                 properties: {
                     desktop: "gnome",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base"
                 }
             },
             {
@@ -303,7 +313,8 @@ export const imageCategories: Array<ImageCategory> = [
                 url: "ghcr.io/centos-workstation/achillobator",
                 properties: {
                     desktop: "gnome",
-                    nvidia: "none"
+                    nvidia: "none",
+                    kernel: "base"
                 }
             }
         ]

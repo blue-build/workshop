@@ -13,6 +13,8 @@ export type KnownDesktop =
 
 export type NvidiaDriverType = "proprietary" | "open" | "none";
 
+export type KernelType = "base" | "bazzite";
+
 export type Stability = "stable" | "beta" | "experimental";
 
 export type ImageCategory = {
@@ -30,6 +32,7 @@ export type Image = {
     properties: {
         desktop: KnownDesktop;
         nvidia: NvidiaDriverType;
+        kernel?: KernelType;
         stability?: Stability;
     };
 };
