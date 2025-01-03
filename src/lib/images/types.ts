@@ -2,6 +2,7 @@ export type ImageCategory = {
     category: string;
     description: Array<string>;
     repo: string;
+    website?: string;
     images: Array<Image>;
     stability: "stable" | "beta" | "experimental";
 };

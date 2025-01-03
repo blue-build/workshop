@@ -4,7 +4,7 @@
     import { Button } from "$lib/ui/components/ui/button";
     import * as Select from "$lib/ui/components/ui/select";
     import * as Alert from "$lib/ui/components/ui/alert";
-    import { LucideCopy, LucideFolderGit2 } from "lucide-svelte";
+    import { LucideCopy, LucideExternalLink, LucideFolderGit2 } from "lucide-svelte";
     import type { Selected } from "bits-ui";
     import { toast } from "svelte-sonner";
 
@@ -110,7 +110,7 @@
     {/if}
     {#each filteredCategories as category}
         <section class="flex flex-col gap-5 p-4 outline-dashed outline-secondary">
-            <header>
+            <header class="flex flex-col gap-1">
                 <div class="flex flex-row items-center gap-3">
                     <h3 class="text-2xl">{category.category}</h3>
                     <div
@@ -140,6 +140,16 @@
                     {/if}
                     {category.repo}
                 </a>
+                {#if category.website}
+                    <a
+                        href={category.website}
+                        target="_blank"
+                        class="flex flex-row gap-2 text-sm hover:underline focus:underline"
+                    >
+                        <LucideExternalLink class="h-5 w-5" />
+                        {category.website}
+                    </a>
+                {/if}
             </header>
 
             <div class="prose max-w-7xl">

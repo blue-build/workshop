@@ -12,6 +12,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Bazzite is a cloud native image built upon Fedora Atomic Desktops that brings the best of Linux gaming to all of your devices - including your favorite handheld."
         ],
         repo: "https://github.com/ublue-os/bazzite/",
+        website: "https://bazzite.gg/",
         stability: "stable",
         images: generateMatrix({
             baseName: ["bazzite", "bazzite-deck"],
@@ -57,6 +58,7 @@ export const imageCategories: Array<ImageCategory> = [
             "For end users it provides a system as reliable as a Chromebook with near-zero maintenance while providing developers with a powerful cloud-native development mode. Built with next generation tech, for people who need their machines to get work done."
         ],
         repo: "https://github.com/ublue-os/bluefin/",
+        website: "https://projectbluefin.io/",
         stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
@@ -88,6 +90,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Get onboard. Aurora is the ultimate desktop OS for your developer workstation or the perfect maintenance-free OS for everyone."
         ],
         repo: "https://github.com/ublue-os/aurora/",
+        website: "https://getaurora.dev/",
         stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
@@ -118,6 +121,7 @@ export const imageCategories: Array<ImageCategory> = [
             "A common main image for all other uBlue images, with minimal (but important) adjustments to Fedora."
         ],
         repo: "https://github.com/ublue-os/main",
+        website: "https://universal-blue.org/",
         stability: "stable",
         images: generateMatrix({
             base: ["silverblue", "kinoite", "sericea", "onyx", "base", "lazurite", "vauxite"],
@@ -244,6 +248,7 @@ export const imageCategories: Array<ImageCategory> = [
         category: "fedora-bootc",
         description: ["Official atomic bootable container base image for Fedora."],
         repo: "https://gitlab.com/fedora/bootc/base-images",
+        website: "https://docs.fedoraproject.org/en-US/bootc/",
         stability: "stable",
         images: [
             {
@@ -263,6 +268,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Check available tags from the repo."
         ],
         repo: "https://gitlab.com/redhat/centos-stream/containers/bootc",
+        website: "https://docs.fedoraproject.org/en-US/bootc/",
         stability: "stable",
         images: [
             {
