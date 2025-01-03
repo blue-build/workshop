@@ -179,9 +179,8 @@ export const imageCategories: Array<ImageCategory> = [
                 "securecore",
                 "securecore-zfs"
             ],
-            nvidia: ["none", "open", "proprietary"],
-            userns: [false, true]
-        }).map(({ base, nvidia, userns }) => {
+            nvidia: ["none", "open", "proprietary"]
+        }).map(({ base, nvidia }) => {
             const name =
                 base +
                 (nvidia == "open"
@@ -189,7 +188,6 @@ export const imageCategories: Array<ImageCategory> = [
                     : nvidia == "proprietary"
                       ? "-nvidia"
                       : "-main") +
-                (userns ? "-userns" : "") +
                 "-hardened";
             const desktop = (
                 fedoraCodewordToKnownDesktop(base as string) != "none"
