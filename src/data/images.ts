@@ -61,14 +61,13 @@ export const imageCategories: Array<ImageCategory> = [
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
-            hardware: ["", "asus", "surface"]
+            hardware: ["", "hwe"]
         })
             .map(({ nvidia, dx, hardware }) => {
                 const name =
                     "bluefin" +
                     (dx ? "-dx" : "") +
-                    (hardware == "asus" ? "-asus" : "") +
-                    (hardware == "surface" ? "-surface" : "") +
+                    (hardware !== "" ? "-" + hardware : "") +
                     (nvidia ? "-nvidia" : "");
                 return {
                     name,
@@ -93,14 +92,13 @@ export const imageCategories: Array<ImageCategory> = [
         images: generateMatrix({
             nvidia: [false, true],
             dx: [false, true],
-            hardware: ["", "asus", "surface"]
+            hardware: ["", "hwe"]
         })
             .map(({ nvidia, dx, hardware }) => {
                 const name =
                     "aurora" +
                     (dx ? "-dx" : "") +
-                    (hardware == "asus" ? "-asus" : "") +
-                    (hardware == "surface" ? "-surface" : "") +
+                    (hardware !== "" ? "-" + hardware : "") +
                     (nvidia ? "-nvidia" : "");
                 return {
                     name,
