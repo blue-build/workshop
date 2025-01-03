@@ -87,7 +87,7 @@ export const imageCategories: Array<ImageCategory> = [
             "Powered by the awesomeness of KDE and Universal Blue, crafted for you.",
             "Get onboard. Aurora is the ultimate desktop OS for your developer workstation or the perfect maintenance-free OS for everyone."
         ],
-        repo: "https://github.com/ublue-os/bluefin/",
+        repo: "https://github.com/ublue-os/aurora/",
         stability: "stable",
         images: generateMatrix({
             nvidia: [false, true],
