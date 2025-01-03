@@ -1,5 +1,11 @@
 import { generateMatrix } from "$lib/images/helpers";
-import type { ImageCategory, KernelType, KnownDesktop, NvidiaDriverType } from "$lib/images/types";
+import type {
+    CodecsSupport,
+    ImageCategory,
+    KernelType,
+    KnownDesktop,
+    NvidiaDriverType
+} from "$lib/images/types";
 
 // TODO add tag support?
 // TODO add nonfree codec property?
@@ -45,7 +51,8 @@ export const imageCategories: Array<ImageCategory> = [
                             : name.includes("nvidia")
                               ? "proprietary"
                               : "none") as NvidiaDriverType,
-                        kernel: "bazzite" as KernelType
+                        kernel: "bazzite" as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -78,7 +85,8 @@ export const imageCategories: Array<ImageCategory> = [
                     properties: {
                         desktop: "gnome" as KnownDesktop,
                         nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
-                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -111,7 +119,8 @@ export const imageCategories: Array<ImageCategory> = [
                     properties: {
                         desktop: "kde" as KnownDesktop,
                         nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
-                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType
+                        kernel: (hardware == "hwe" ? "bazzite" : "base") as KernelType,
+                        codecs: "nonfree" as CodecsSupport
                     }
                 };
             })
@@ -137,7 +146,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: fedoraCodewordToKnownDesktop(base as string),
                     nvidia: (nvidia ? "proprietary" : "none") as NvidiaDriverType,
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             };
         })
@@ -163,6 +173,7 @@ export const imageCategories: Array<ImageCategory> = [
                     desktop: compositor as KnownDesktop,
                     nvidia: nvidia as NvidiaDriverType,
                     kernel: "base",
+                    codecs: "nonfree",
                     stability: (compositor as string) == "qtile" ? "experimental" : undefined
                 }
             };
@@ -214,6 +225,7 @@ export const imageCategories: Array<ImageCategory> = [
                     desktop,
                     nvidia: nvidia as NvidiaDriverType,
                     kernel: "base",
+                    codecs: "nonfree",
                     stability: (base as string).startsWith("wayblue") ? "beta" : undefined
                 }
             };
@@ -246,7 +258,8 @@ export const imageCategories: Array<ImageCategory> = [
                             ? "cosmic"
                             : fedoraCodewordToKnownDesktop(base as string),
                     nvidia: "none" as NvidiaDriverType,
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "free"
                 }
             };
         })
@@ -264,7 +277,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: "none",
                     nvidia: "none",
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "free"
                 }
             }
         ]
@@ -285,7 +299,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: "none",
                     nvidia: "none",
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "free"
                 }
             }
         ]
@@ -305,7 +320,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: "gnome",
                     nvidia: "none",
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             },
             {
@@ -314,7 +330,8 @@ export const imageCategories: Array<ImageCategory> = [
                 properties: {
                     desktop: "gnome",
                     nvidia: "none",
-                    kernel: "base"
+                    kernel: "base",
+                    codecs: "nonfree"
                 }
             }
         ]

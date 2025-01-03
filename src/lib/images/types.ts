@@ -15,6 +15,8 @@ export type NvidiaDriverType = "proprietary" | "open" | "none";
 
 export type KernelType = "base" | "bazzite";
 
+export type CodecsSupport = "free" | "nonfree";
+
 export type Stability = "stable" | "beta" | "experimental";
 
 export type ImageCategory = {
@@ -33,6 +35,7 @@ export type Image = {
         desktop: KnownDesktop;
         nvidia: NvidiaDriverType;
         kernel?: KernelType;
+        codecs?: CodecsSupport;
         stability?: Stability;
     };
 };
