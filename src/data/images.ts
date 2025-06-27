@@ -181,7 +181,7 @@ export const imageCategories: Array<ImageCategory> = [
     },
     {
         category: "secureblue",
-        description: ["Hardened Fedora Atomic and Fedora CoreOS images."],
+        description: ["A security-focused desktop and server linux operating system."],
         repo: "https://github.com/secureblue/secureblue",
         stability: "stable",
         images: generateMatrix({
@@ -189,10 +189,6 @@ export const imageCategories: Array<ImageCategory> = [
                 "silverblue",
                 "kinoite",
                 "sericea",
-                "wayblue-wayfire",
-                "wayblue-sway",
-                "wayblue-river",
-                "wayblue-hyprland",
                 "cosmic",
                 "securecore",
                 "securecore-zfs"
@@ -210,9 +206,7 @@ export const imageCategories: Array<ImageCategory> = [
             const desktop = (
                 fedoraCodewordToKnownDesktop(base as string) != "none"
                     ? fedoraCodewordToKnownDesktop(base as string)
-                    : (base as string).startsWith("wayblue")
-                      ? (base as string).replace("wayblue-", "")
-                      : (base as string).startsWith("securecore")
+                    : (base as string).startsWith("securecore")
                         ? "none"
                         : base == "cosmic"
                           ? "cosmic"
